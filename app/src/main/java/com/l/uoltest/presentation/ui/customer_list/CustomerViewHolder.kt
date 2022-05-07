@@ -68,7 +68,7 @@ class CustomerViewHolder(
         )
 
         root.setOnClickListener {
-            println("CLICK")
+            onCustomerClick(customer)
         }
     }
 }

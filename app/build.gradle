@@ -3,15 +3,16 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.l.uoltest"
         minSdk 24
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -72,4 +73,7 @@ dependencies {
 
     //glide
     implementation 'com.github.bumptech.glide:glide:4.13.0'
+
+    //lottie
+    implementation 'com.airbnb.android:lottie:3.4.2'
 }

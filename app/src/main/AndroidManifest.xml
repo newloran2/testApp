@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.l.uoltest">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".presentation.App"
@@ -11,7 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UOLTest">
+        android:theme="@style/Theme.UOLTest"
+        android:usesCleartextTraffic="true"
+        >
+        <activity
+            android:name=".presentation.ui.customer_details.CustomerDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.ui.customer_list.CustomerListActivity"
             android:exported="true">

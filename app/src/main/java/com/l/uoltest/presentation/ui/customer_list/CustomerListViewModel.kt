@@ -22,21 +22,16 @@ class CustomerListViewModel @Inject constructor(
         repository.getAllCustomers()
             .flowOn(Dispatchers.IO)
             .onStart {
-                println("_RESULT_ onStart")
-
                 _customers.update {
                     Result.Loading
                 }
             }
             .onEach { result ->
-                println("_RESULT_ onEach")
                 _customers.update {
                     Result.Success(result)
                 }
             }
             .catch {
-                println("_RESULT_ catch $it")
-
                 _customers.update { _ ->
                     Result.Error(it)
                 }

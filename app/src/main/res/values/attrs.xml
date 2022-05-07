@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DefaultWebView">
+        <attr name="errorText" format="string"/>
+        <attr name="status" format="enum">
+            <enum name="loading" value="0"/>
+            <enum name="success" value="1"/>
+            <enum name="error" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

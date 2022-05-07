@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/L/Documents/AppsAndroidStudio/UOLTest/app/src/main/res/layout/activity_customer_details.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/L/Documents/AppsAndroidStudio/UOLTest/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/L/Documents/AppsAndroidStudio/UOLTest/app/src/main/res/layout/adapter_customer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/L/Documents/AppsAndroidStudio/UOLTest/app/src/main/res/layout/default_web_view.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

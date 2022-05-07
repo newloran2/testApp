@@ -14,6 +14,7 @@ import com.l.uoltest.databinding.ActivityCustomerListBinding
 import com.l.uoltest.presentation.ui.customer_details.CustomerDetailsActivity
 import com.l.uoltest.presentation.util.showErrorToast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -30,13 +31,22 @@ class CustomerListActivity : AppCompatActivity() {
         )
     }
 
+    private var observeCustomersJob: Job? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCustomerListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setRecycler()
-        setObservers()
+        observeCustomers()
+        setSwipeRefresh()
+    }
+
+    private fun setSwipeRefresh() {
+        binding.root.setOnRefreshListener {
+            observeCustomers()
+        }
     }
 
     private fun setRecycler() {
@@ -51,16 +61,22 @@ class CustomerListActivity : AppCompatActivity() {
         }
     }
 
-    private fun setObservers() {
-        lifecycleScope.launch {
+    private fun observeCustomers() {
+        observeCustomersJob?.cancel()
+
+        observeCustomersJob = lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.customer.collect { result ->
                     when (result) {
-                        is Result.Loading -> {}
+                        is Result.Loading -> {
+                            binding.root.isRefreshing = true
+                        }
                         is Result.Success -> {
+                            binding.root.isRefreshing = false
                             adapterCustomer.submitList(result.data)
                         }
                         is Result.Error -> {
+                            binding.root.isRefreshing = false
                             this@CustomerListActivity.showErrorToast(result.getError())
                         }
                     }

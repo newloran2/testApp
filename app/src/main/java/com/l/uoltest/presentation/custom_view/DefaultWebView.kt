@@ -34,6 +34,8 @@ class DefaultWebView : ConstraintLayout {
             field = value
 
             binding.tvError.isVisible = value == Status.ERROR
+            binding.btnRetry.isVisible = value == Status.ERROR
+            binding.webView.isVisible = value != Status.ERROR
 
             when (value) {
                 Status.LOADING -> {
@@ -68,15 +70,15 @@ class DefaultWebView : ConstraintLayout {
         setWebView()
     }
 
-    fun loadUrl(url: String) {
-        webView.loadUrl(url)
-    }
-
     @SuppressLint("SetJavaScriptEnabled")
     private fun setWebView() {
         webView.run {
             settings.javaScriptEnabled = true
             webViewClient = buildWebViewClient()
+        }
+
+        binding.btnRetry.setOnClickListener {
+            webView.reload()
         }
     }
 
@@ -85,19 +87,19 @@ class DefaultWebView : ConstraintLayout {
             view: WebView?,
             request: WebResourceRequest?
         ): Boolean {
-            if (!request?.url?.host.isNullOrBlank()) {
-                return false
-            }
-            return super.shouldOverrideUrlLoading(view, request)
+            return true
+            //return super.shouldOverrideUrlLoading(view, request)
         }
 
         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+            println("_WEB_ onPageStarted")
             super.onPageStarted(view, url, favicon)
             wasErrorOccurred = false
             status = Status.LOADING
         }
 
         override fun onPageFinished(view: WebView?, url: String?) {
+            println("_WEB_ onPageFinished")
             super.onPageFinished(view, url)
             if (!wasErrorOccurred) {
                 status = Status.SUCCESS
@@ -109,6 +111,7 @@ class DefaultWebView : ConstraintLayout {
             request: WebResourceRequest?,
             error: WebResourceError?
         ) {
+            println("_WEB_ onReceivedError")
             super.onReceivedError(view, request, error)
             onError(error?.description?.toString())
         }
@@ -118,6 +121,7 @@ class DefaultWebView : ConstraintLayout {
             request: WebResourceRequest?,
             errorResponse: WebResourceResponse?
         ) {
+            println("_WEB_ onReceivedHttpError")
             super.onReceivedHttpError(view, request, errorResponse)
             onError(errorResponse?.reasonPhrase?.toString())
         }
@@ -127,8 +131,15 @@ class DefaultWebView : ConstraintLayout {
             handler: SslErrorHandler?,
             error: SslError?
         ) {
+            println("_WEB_ onReceivedSslError: $error")
             super.onReceivedSslError(view, handler, error)
-            onError(error?.toString())
+
+            when (error?.primaryError) {
+                SslError.SSL_IDMISMATCH,
+                SslError.SSL_INVALID -> {
+                    onError(error.toString())
+                }
+            }
         }
     }
 
@@ -136,6 +147,10 @@ class DefaultWebView : ConstraintLayout {
         wasErrorOccurred = true
         status = Status.ERROR
         errorText = errorMessage
+    }
+
+    fun loadUrl(url: String) {
+        webView.loadUrl(url)
     }
 
     enum class Status {

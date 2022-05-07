@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">UOL Test</string>
 
+    <string name="label_customers">Customers</string>
+
     <string name="error_network">Network error, please verify your connection and try again</string>
     <string name="error_service_unavailable">Service unavailable, please try again later</string>
     <string name="error_denied">Access denied</string>

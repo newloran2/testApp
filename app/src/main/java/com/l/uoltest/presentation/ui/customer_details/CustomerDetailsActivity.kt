@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.l.uoltest.data.model.Customer
 import com.l.uoltest.databinding.ActivityCustomerDetailsBinding
+import com.l.uoltest.presentation.util.loadImage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,12 +29,32 @@ class CustomerDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setWebView()
+        setCustomerInfo()
     }
 
     private fun setWebView() {
         customer.profileLink ?: return onProfileLinkMissing()
 
         binding.defaultWebView.loadUrl(customer.profileLink!!)
+    }
+
+    private fun setCustomerInfo() {
+        binding.run {
+            tvName.text = customer.name
+            tvEmail.text = customer.email
+            tvPhone.text = customer.phone
+
+            tvName.isVisible = !customer.name.isNullOrBlank()
+            tvEmail.isVisible = !customer.email.isNullOrBlank()
+            tvPhone.isVisible = !customer.phone.isNullOrBlank()
+
+            Glide.with(this@CustomerDetailsActivity)
+                .loadImage(
+                    imageUrl = customer.profileImage,
+                    imageView = imgProfile,
+                    transformation = CircleCrop()
+                )
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

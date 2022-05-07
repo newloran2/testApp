@@ -3,46 +3,104 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Widget.Material3.CardView.Outlined"
+    style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginStart="@dimen/margin_default"
+    android:layout_marginTop="@dimen/margin_default"
+    android:layout_marginEnd="@dimen/margin_default"
     app:cardCornerRadius="16dp"
-    app:contentPadding="16dp">
+    app:contentPadding="@dimen/margin_default"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        >
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvName"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:srcCompat="@tools:sample/avatars"
+            />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="2"
-            tools:text="@tools:sample/full_names" />
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/margin_default"
+            >
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="2"
-            tools:text="@tools:sample/full_names" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="2"
-            tools:text="@tools:sample/full_names" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    android:maxLines="2"
+                    tools:text="@tools:sample/full_names"
+                    />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="2"
-            tools:text="@tools:sample/full_names" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    app:drawableEndCompat="@drawable/ic_circle"
+                    android:drawablePadding="4dp"
+                    app:drawableTint="@color/tertiary"
+                    android:textAlignment="textEnd"
+                    android:maxLines="1"
+                    tools:text="@tools:sample/full_names"
+                    />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:maxLines="2"
+                tools:text="@tools:sample/full_names" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                app:drawableStartCompat="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:maxLines="1"
+                tools:text="@tools:sample/full_names"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                app:drawableStartCompat="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:maxLines="1"
+                tools:text="@tools:sample/full_names"
+                />
+        </LinearLayout>
     </LinearLayout>
+
+
 </com.google.android.material.card.MaterialCardView>

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.l.uoltest.data.model.Customer
 import com.l.uoltest.databinding.AdapterCustomerBinding
+import com.l.uoltest.presentation.util.loadImage
 
 class CustomerViewHolder(
     parent: ViewGroup,
@@ -21,8 +22,10 @@ class CustomerViewHolder(
         )
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    private val profileImage = binding.imgProfile
     private val name = binding.tvName
     private val email = binding.tvEmail
+    private val phone = binding.tvPhone
     private val status = binding.tvStatus
     private val id = binding.tvId
     private val root = binding.root
@@ -30,6 +33,7 @@ class CustomerViewHolder(
     fun bindView(customer: Customer) {
         name.isVisible = !customer.name.isNullOrBlank()
         email.isVisible = !customer.email.isNullOrBlank()
+        phone.isVisible = !customer.phone.isNullOrBlank()
 
         customer.name?.let {
             name.setTextFuture(
@@ -51,6 +55,16 @@ class CustomerViewHolder(
             )
         }
 
+        customer.phone?.let {
+            phone.setTextFuture(
+                PrecomputedTextCompat.getTextFuture(
+                    customer.phone,
+                    phone.textMetricsParamsCompat,
+                    null
+                )
+            )
+        }
+
         status.setTextFuture(
             PrecomputedTextCompat.getTextFuture(
                 customer.status,
@@ -66,6 +80,8 @@ class CustomerViewHolder(
                 null
             )
         )
+
+        requestManager.loadImage(customer.profileImage, profileImage)
 
         root.setOnClickListener {
             onCustomerClick(customer)

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
@@ -12,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.l.uoltest.data.model.Customer
 import com.l.uoltest.databinding.ActivityCustomerDetailsBinding
 import com.l.uoltest.presentation.util.loadImage
+import com.l.uoltest.presentation.util.showImage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,9 +33,7 @@ class CustomerDetailsActivity : AppCompatActivity() {
     }
 
     private fun setWebView() {
-        customer.profileLink ?: return onProfileLinkMissing()
-
-        binding.defaultWebView.loadUrl(customer.profileLink!!)
+        binding.defaultWebView.loadUrl(customer.profileLink)
     }
 
     private fun setCustomerInfo() {
@@ -54,6 +52,12 @@ class CustomerDetailsActivity : AppCompatActivity() {
                     imageView = imgProfile,
                     transformation = CircleCrop()
                 )
+
+            imgProfile.setOnClickListener {
+                customer.profileImage?.let {
+                    imgProfile.showImage(this@CustomerDetailsActivity, it)
+                }
+            }
         }
     }
 
@@ -64,11 +68,6 @@ class CustomerDetailsActivity : AppCompatActivity() {
         }
 
         return super.onKeyDown(keyCode, event)
-    }
-
-    private fun onProfileLinkMissing() {
-        Toast.makeText(this, "Url missing", Toast.LENGTH_SHORT).show()
-        finish()
     }
 
     companion object {

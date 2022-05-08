@@ -1,33 +1,36 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.UOLTest" parent="Theme.Material3.Light.NoActionBar">
-        <item name="android:statusBarColor" tools:targetApi="l">@color/background</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorOnPrimary">@color/onPrimary</item>
-        <item name="colorPrimaryContainer">@color/primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/onPrimaryContainer</item>
-        <item name="colorSecondary">@color/secondary</item>
-        <item name="colorOnSecondary">@color/onSecondary</item>
-        <item name="colorSecondaryContainer">@color/secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/onSecondaryContainer</item>
-        <item name="colorTertiary">@color/tertiary</item>
-        <item name="colorOnTertiary">@color/onTertiary</item>
-        <item name="colorTertiaryContainer">@color/tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/onTertiaryContainer</item>
-        <item name="colorError">@color/error</item>
-        <item name="colorErrorContainer">@color/errorContainer</item>
-        <item name="colorOnError">@color/onError</item>
-        <item name="colorOnErrorContainer">@color/onErrorContainer</item>
-        <item name="android:colorBackground">@color/background</item>
-        <item name="colorOnBackground">@color/onBackground</item>
-        <item name="colorSurface">@color/surface</item>
-        <item name="colorOnSurface">@color/onSurface</item>
-        <item name="colorSurfaceVariant">@color/surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/onSurfaceVariant</item>
-        <item name="colorOutline">@color/outline</item>
-        <item name="colorOnSurfaceInverse">@color/inverseOnSurface</item>
-        <item name="colorSurfaceInverse">@color/inverseSurface</item>
-        <item name="colorPrimaryInverse">@color/primaryInverse</item>
+<resources>
+    <style name="Theme.UOLTest" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/grey_100</item>
+        <item name="colorOnPrimary">@color/grey_900</item>
+
+        <item name="colorSecondary">@color/grey_900</item>
+        <item name="colorSecondaryVariant">@color/grey_500</item>
+        <item name="colorOnSecondary">@color/grey_100</item>
+
+        <item name="android:colorBackground">@color/grey_50</item>
+        <item name="colorSurface">@color/white</item>
+
+    </style>
+
+    <style name="DefaultButton">
+        <item name="backgroundTint">@color/grey_900</item>
+        <item name="android:textColor">@color/grey_100</item>
+    </style>
+    <style name="TextColorPrimary">
+        <item name="android:textColor">@color/grey_900</item>
+        <item name="drawableTint">@color/grey_900</item>
+    </style>
+    <style name="TextColorSecondary">
+        <item name="android:textColor">@color/dark_blue_grey</item>
+        <item name="drawableTint">@color/dark_blue_grey</item>
+    </style>
+    <style name="TextColorTertiary">
+        <item name="android:textColor">@color/grey_500</item>
+        <item name="drawableTint">@color/grey_500</item>
     </style>
 
     <style name="roundedImageView" parent="">

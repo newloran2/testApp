@@ -1,6 +1,11 @@
 package com.l.uoltest.presentation.util
 
 import android.content.Context
+import android.net.http.SslError
+import android.net.http.SslError.SSL_IDMISMATCH
+import android.net.http.SslError.SSL_INVALID
+import android.webkit.WebResourceError
+import android.webkit.WebViewClient.*
 import android.widget.Toast
 import com.l.uoltest.R
 import com.l.uoltest.data.model.ErrorEntity
@@ -16,5 +21,23 @@ fun getErrorMessageFromError(context: Context, error: ErrorEntity): String {
         is ErrorEntity.ServiceUnavailable -> context.getString(R.string.error_service_unavailable)
         is ErrorEntity.AccessDenied -> context.getString(R.string.error_denied)
         else -> context.getString(R.string.error_unknown)
+    }
+}
+
+fun WebResourceError.getErrorMessage(context: Context): String {
+    return when (errorCode) {
+        ERROR_UNKNOWN -> context.getString(R.string.error_unknown)
+        ERROR_CONNECT -> context.getString(R.string.error_site_connect)
+        ERROR_TIMEOUT -> context.getString(R.string.error_site_timeout)
+        ERROR_BAD_URL -> context.getString(R.string.error_site_not_found)
+        ERROR_UNSAFE_RESOURCE -> context.getString(R.string.error_site_untrusted)
+        else -> context.getString(R.string.error_site_connect)
+    }
+}
+
+fun SslError.getErrorMessage(context: Context): String {
+    return when (primaryError) {
+        SSL_IDMISMATCH, SSL_INVALID -> context.getString(R.string.error_site_not_found)
+        else -> context.getString(R.string.error_site_connect)
     }
 }

@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.http.SslError
+import android.net.http.SslError.SSL_IDMISMATCH
+import android.net.http.SslError.SSL_INVALID
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.webkit.*
@@ -12,6 +14,7 @@ import androidx.core.view.isVisible
 import com.l.uoltest.R
 import com.l.uoltest.databinding.DefaultWebViewBinding
 import com.l.uoltest.presentation.util.animate
+import com.l.uoltest.presentation.util.getErrorMessage
 import com.l.uoltest.presentation.util.hideAnimation
 
 class DefaultWebView : ConstraintLayout {
@@ -83,27 +86,22 @@ class DefaultWebView : ConstraintLayout {
     }
 
     private fun buildWebViewClient(): WebViewClient = object : WebViewClient() {
-        override fun shouldOverrideUrlLoading(
-            view: WebView?,
-            request: WebResourceRequest?
-        ): Boolean {
-            return true
-            //return super.shouldOverrideUrlLoading(view, request)
-        }
 
         override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-            println("_WEB_ onPageStarted")
             super.onPageStarted(view, url, favicon)
             wasErrorOccurred = false
             status = Status.LOADING
+
+            println("_WEB_ onPageStarted")
         }
 
         override fun onPageFinished(view: WebView?, url: String?) {
-            println("_WEB_ onPageFinished")
             super.onPageFinished(view, url)
             if (!wasErrorOccurred) {
                 status = Status.SUCCESS
             }
+
+            println("_WEB_ onPageFinished")
         }
 
         override fun onReceivedError(
@@ -111,9 +109,10 @@ class DefaultWebView : ConstraintLayout {
             request: WebResourceRequest?,
             error: WebResourceError?
         ) {
-            println("_WEB_ onReceivedError")
             super.onReceivedError(view, request, error)
-            onError(error?.description?.toString())
+            onError(error?.getErrorMessage(context))
+
+            println("_WEB_ onReceivedError ${error?.errorCode}: ${error?.description}")
         }
 
         override fun onReceivedHttpError(
@@ -121,9 +120,10 @@ class DefaultWebView : ConstraintLayout {
             request: WebResourceRequest?,
             errorResponse: WebResourceResponse?
         ) {
-            println("_WEB_ onReceivedHttpError")
             super.onReceivedHttpError(view, request, errorResponse)
-            onError(errorResponse?.reasonPhrase?.toString())
+            onError(context.getString(R.string.error_site_connect))
+
+            println("_WEB_ onReceivedHttpError: ${errorResponse?.reasonPhrase}")
         }
 
         override fun onReceivedSslError(
@@ -131,15 +131,15 @@ class DefaultWebView : ConstraintLayout {
             handler: SslErrorHandler?,
             error: SslError?
         ) {
-            println("_WEB_ onReceivedSslError: $error")
             super.onReceivedSslError(view, handler, error)
 
             when (error?.primaryError) {
-                SslError.SSL_IDMISMATCH,
-                SslError.SSL_INVALID -> {
-                    onError(error.toString())
+                SSL_IDMISMATCH, SSL_INVALID -> {
+                    onError(error.getErrorMessage(context))
                 }
             }
+
+            println("_WEB_ onReceivedSslError: $error")
         }
     }
 
@@ -149,7 +149,8 @@ class DefaultWebView : ConstraintLayout {
         errorText = errorMessage
     }
 
-    fun loadUrl(url: String) {
+    fun loadUrl(url: String?) {
+        url ?: return onError(context.getString(R.string.error_site_not_found))
         webView.loadUrl(url)
     }
 

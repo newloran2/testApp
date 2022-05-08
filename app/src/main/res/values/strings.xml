@@ -7,4 +7,10 @@
     <string name="error_service_unavailable">Service unavailable, please try again later</string>
     <string name="error_denied">Access denied</string>
     <string name="error_unknown">Unknown error, please try again later</string>
+
+    <string name="error_site_connect">Could not connect to server</string>
+    <string name="error_site_not_found">Site not found</string>
+    <string name="error_site_untrusted">Untrusted site</string>
+    <string name="error_site_timeout">Timeout</string>
+    <string name="button_retry">Retry</string>
 </resources>

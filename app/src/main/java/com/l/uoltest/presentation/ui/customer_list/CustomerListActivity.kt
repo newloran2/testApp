@@ -44,7 +44,7 @@ class CustomerListActivity : AppCompatActivity() {
     }
 
     private fun setSwipeRefresh() {
-        binding.root.setOnRefreshListener {
+        binding.refreshLayout.setOnRefreshListener {
             observeCustomers()
         }
     }
@@ -69,14 +69,14 @@ class CustomerListActivity : AppCompatActivity() {
                 viewModel.customer.collect { result ->
                     when (result) {
                         is Result.Loading -> {
-                            binding.root.isRefreshing = true
+                            binding.refreshLayout.isRefreshing = true
                         }
                         is Result.Success -> {
-                            binding.root.isRefreshing = false
+                            binding.refreshLayout.isRefreshing = false
                             adapterCustomer.submitList(result.data)
                         }
                         is Result.Error -> {
-                            binding.root.isRefreshing = false
+                            binding.refreshLayout.isRefreshing = false
                             this@CustomerListActivity.showErrorToast(result.getError())
                         }
                     }

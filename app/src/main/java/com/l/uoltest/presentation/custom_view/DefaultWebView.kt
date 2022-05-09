@@ -14,7 +14,8 @@ import androidx.core.view.isVisible
 import com.l.uoltest.R
 import com.l.uoltest.databinding.DefaultWebViewBinding
 import com.l.uoltest.presentation.util.animate
-import com.l.uoltest.presentation.util.getErrorMessage
+import com.l.uoltest.presentation.util.getSslErrorMessage
+import com.l.uoltest.presentation.util.getWebResourceErrorMessage
 import com.l.uoltest.presentation.util.hideAnimation
 
 class DefaultWebView : ConstraintLayout {
@@ -91,8 +92,6 @@ class DefaultWebView : ConstraintLayout {
             super.onPageStarted(view, url, favicon)
             wasErrorOccurred = false
             status = Status.LOADING
-
-            println("_WEB_ onPageStarted")
         }
 
         override fun onPageFinished(view: WebView?, url: String?) {
@@ -100,8 +99,6 @@ class DefaultWebView : ConstraintLayout {
             if (!wasErrorOccurred) {
                 status = Status.SUCCESS
             }
-
-            println("_WEB_ onPageFinished")
         }
 
         override fun onReceivedError(
@@ -110,9 +107,7 @@ class DefaultWebView : ConstraintLayout {
             error: WebResourceError?
         ) {
             super.onReceivedError(view, request, error)
-            onError(error?.getErrorMessage(context))
-
-            println("_WEB_ onReceivedError ${error?.errorCode}: ${error?.description}")
+            onError(getWebResourceErrorMessage(context, error?.errorCode))
         }
 
         override fun onReceivedHttpError(
@@ -122,8 +117,6 @@ class DefaultWebView : ConstraintLayout {
         ) {
             super.onReceivedHttpError(view, request, errorResponse)
             onError(context.getString(R.string.error_site_connect))
-
-            println("_WEB_ onReceivedHttpError: ${errorResponse?.reasonPhrase}")
         }
 
         override fun onReceivedSslError(
@@ -135,11 +128,9 @@ class DefaultWebView : ConstraintLayout {
 
             when (error?.primaryError) {
                 SSL_IDMISMATCH, SSL_INVALID -> {
-                    onError(error.getErrorMessage(context))
+                    onError(getSslErrorMessage(context, error.primaryError))
                 }
             }
-
-            println("_WEB_ onReceivedSslError: $error")
         }
     }
 

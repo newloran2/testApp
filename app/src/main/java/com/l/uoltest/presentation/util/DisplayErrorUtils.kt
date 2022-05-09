@@ -1,10 +1,8 @@
 package com.l.uoltest.presentation.util
 
 import android.content.Context
-import android.net.http.SslError
 import android.net.http.SslError.SSL_IDMISMATCH
 import android.net.http.SslError.SSL_INVALID
-import android.webkit.WebResourceError
 import android.webkit.WebViewClient.*
 import android.widget.Toast
 import com.l.uoltest.R
@@ -24,8 +22,8 @@ fun getErrorMessageFromError(context: Context, error: ErrorEntity): String {
     }
 }
 
-fun WebResourceError.getErrorMessage(context: Context): String {
-    return when (errorCode) {
+fun getWebResourceErrorMessage(context: Context, errorCode: Int?): String {
+    return when (errorCode ?: ERROR_UNKNOWN) {
         ERROR_UNKNOWN -> context.getString(R.string.error_unknown)
         ERROR_CONNECT -> context.getString(R.string.error_site_connect)
         ERROR_TIMEOUT -> context.getString(R.string.error_site_timeout)
@@ -35,7 +33,7 @@ fun WebResourceError.getErrorMessage(context: Context): String {
     }
 }
 
-fun SslError.getErrorMessage(context: Context): String {
+fun getSslErrorMessage(context: Context, primaryError: Int?): String {
     return when (primaryError) {
         SSL_IDMISMATCH, SSL_INVALID -> context.getString(R.string.error_site_not_found)
         else -> context.getString(R.string.error_site_connect)

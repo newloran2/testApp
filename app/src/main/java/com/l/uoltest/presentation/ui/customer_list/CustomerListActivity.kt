@@ -3,15 +3,20 @@ package com.l.uoltest.presentation.ui.customer_list
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.l.uoltest.R
 import com.l.uoltest.data.model.Customer
 import com.l.uoltest.data.model.Result
 import com.l.uoltest.databinding.ActivityCustomerListBinding
 import com.l.uoltest.presentation.ui.customer_details.CustomerDetailsActivity
+import com.l.uoltest.presentation.util.animate
+import com.l.uoltest.presentation.util.hasInternetConnection
+import com.l.uoltest.presentation.util.hideAnimation
 import com.l.uoltest.presentation.util.showErrorToast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -63,6 +68,16 @@ class CustomerListActivity : AppCompatActivity() {
 
     private fun observeCustomers() {
         observeCustomersJob?.cancel()
+        binding.refreshLayout.isRefreshing = false
+
+        if (!hasInternetConnection(this)) {
+            binding.recyclerCustomers.isVisible = false
+            binding.animNetworkError.animate(R.raw.anim_no_internet)
+            return
+        }
+
+        binding.recyclerCustomers.isVisible = true
+        binding.animNetworkError.hideAnimation()
 
         observeCustomersJob = lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {

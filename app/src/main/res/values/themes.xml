@@ -1,0 +1,41 @@
+<resources>
+    <style name="Theme.UOLTest" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/grey_100</item>
+        <item name="colorOnPrimary">@color/grey_900</item>
+
+        <item name="colorSecondary">@color/grey_900</item>
+        <item name="colorSecondaryVariant">@color/grey_500</item>
+        <item name="colorOnSecondary">@color/grey_100</item>
+
+        <item name="android:colorBackground">@color/grey_50</item>
+        <item name="colorSurface">@color/white</item>
+
+    </style>
+
+    <style name="DefaultButton">
+        <item name="backgroundTint">@color/grey_900</item>
+        <item name="android:textColor">@color/grey_100</item>
+    </style>
+    <style name="TextColorPrimary">
+        <item name="android:textColor">@color/grey_900</item>
+        <item name="drawableTint">@color/grey_900</item>
+    </style>
+    <style name="TextColorSecondary">
+        <item name="android:textColor">@color/dark_blue_grey</item>
+        <item name="drawableTint">@color/dark_blue_grey</item>
+    </style>
+    <style name="TextColorTertiary">
+        <item name="android:textColor">@color/grey_500</item>
+        <item name="drawableTint">@color/grey_500</item>
+    </style>
+
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+</resources>

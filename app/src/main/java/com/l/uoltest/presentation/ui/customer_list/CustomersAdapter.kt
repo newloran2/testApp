@@ -5,10 +5,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.RequestManager
 import com.l.uoltest.data.model.Customer
+import com.l.uoltest.presentation.util.SharedViews
 
 class CustomersAdapter(
     private val requestManager: RequestManager,
-    private val onCustomerClick: (customer: Customer) -> Unit
+    private val onCustomerClick: (customer: Customer, sharedViews: SharedViews) -> Unit
 ) : ListAdapter<Customer, CustomerViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomerViewHolder {

@@ -3,6 +3,8 @@ package com.l.uoltest.presentation.ui.customer_list
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,10 +16,7 @@ import com.l.uoltest.data.model.Customer
 import com.l.uoltest.data.model.Result
 import com.l.uoltest.databinding.ActivityCustomerListBinding
 import com.l.uoltest.presentation.ui.customer_details.CustomerDetailsActivity
-import com.l.uoltest.presentation.util.animate
-import com.l.uoltest.presentation.util.hasInternetConnection
-import com.l.uoltest.presentation.util.hideAnimation
-import com.l.uoltest.presentation.util.showErrorToast
+import com.l.uoltest.presentation.util.*
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -100,7 +99,21 @@ class CustomerListActivity : AppCompatActivity() {
         }
     }
 
-    private fun onCustomerClick(customer: Customer) {
-        startActivity(CustomerDetailsActivity.startIntent(this, customer))
+    private fun onCustomerClick(customer: Customer, sharedViews: SharedViews) {
+        val options = with(sharedViews) {
+            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                this@CustomerListActivity,
+                Pair(tvName, tvName.transitionName),
+                Pair(tvEmail, tvEmail.transitionName),
+                Pair(tvPhone, tvPhone.transitionName),
+                Pair(imgProfile, imgProfile.transitionName),
+                Pair(background, background.transitionName),
+            )
+        }
+
+        startActivity(
+            CustomerDetailsActivity.startIntent(this, customer),
+            options.toBundle()
+        )
     }
 }

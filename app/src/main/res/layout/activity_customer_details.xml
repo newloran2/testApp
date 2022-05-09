@@ -10,6 +10,7 @@
     >
 
     <View
+        android:id="@+id/bgProfile"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:layout_height="120dp"

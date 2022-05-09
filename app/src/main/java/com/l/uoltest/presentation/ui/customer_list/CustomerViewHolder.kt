@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.l.uoltest.data.model.Customer
 import com.l.uoltest.databinding.AdapterCustomerBinding
-import com.l.uoltest.presentation.util.loadImage
+import com.l.uoltest.presentation.util.*
 
 class CustomerViewHolder(
     parent: ViewGroup,
     private val requestManager: RequestManager,
-    private val onCustomerClick: (customer: Customer) -> Unit,
+    private val onCustomerClick: (customer: Customer, sharedViews: SharedViews) -> Unit,
     binding: AdapterCustomerBinding =
         AdapterCustomerBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -84,7 +84,22 @@ class CustomerViewHolder(
         requestManager.loadImage(customer.profileImage, profileImage)
 
         root.setOnClickListener {
-            onCustomerClick(customer)
+            name.transitionName = TRANSITION_NAME + customer.id
+            email.transitionName = TRANSITION_EMAIL + customer.id
+            phone.transitionName = TRANSITION_PHONE + customer.id
+            profileImage.transitionName = TRANSITION_PICTURE + customer.id
+            root.transitionName = TRANSITION_BACKGROUND + customer.id
+
+            onCustomerClick(
+                customer,
+                SharedViews(
+                    tvName = name,
+                    tvEmail = email,
+                    tvPhone = phone,
+                    imgProfile = profileImage,
+                    background = root
+                )
+            )
         }
     }
 }

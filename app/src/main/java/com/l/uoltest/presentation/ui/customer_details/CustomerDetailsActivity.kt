@@ -10,8 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.l.uoltest.data.model.Customer
 import com.l.uoltest.databinding.ActivityCustomerDetailsBinding
-import com.l.uoltest.presentation.util.loadImage
-import com.l.uoltest.presentation.util.showImage
+import com.l.uoltest.presentation.util.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,6 +37,12 @@ class CustomerDetailsActivity : AppCompatActivity() {
 
     private fun setCustomerInfo() {
         binding.run {
+            tvName.transitionName = TRANSITION_NAME + customer.id
+            tvEmail.transitionName = TRANSITION_EMAIL + customer.id
+            tvPhone.transitionName = TRANSITION_PHONE + customer.id
+            imgProfile.transitionName = TRANSITION_PICTURE + customer.id
+            bgProfile.transitionName = TRANSITION_BACKGROUND + customer.id
+
             tvName.text = customer.name
             tvEmail.text = customer.email
             tvPhone.text = customer.phone

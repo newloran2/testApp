@@ -27,6 +27,7 @@ class CustomerDetailsActivity : AppCompatActivity() {
         binding = ActivityCustomerDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setTransitionNames()
         setWebView()
         setCustomerInfo()
     }
@@ -37,12 +38,6 @@ class CustomerDetailsActivity : AppCompatActivity() {
 
     private fun setCustomerInfo() {
         binding.run {
-            tvName.transitionName = TRANSITION_NAME + customer.id
-            tvEmail.transitionName = TRANSITION_EMAIL + customer.id
-            tvPhone.transitionName = TRANSITION_PHONE + customer.id
-            imgProfile.transitionName = TRANSITION_PICTURE + customer.id
-            bgProfile.transitionName = TRANSITION_BACKGROUND + customer.id
-
             tvName.text = customer.name
             tvEmail.text = customer.email
             tvPhone.text = customer.phone
@@ -63,6 +58,16 @@ class CustomerDetailsActivity : AppCompatActivity() {
                     imgProfile.showImage(this@CustomerDetailsActivity, it)
                 }
             }
+        }
+    }
+
+    private fun setTransitionNames() {
+        binding.run {
+            tvName.transitionName = TRANSITION_NAME + customer.id
+            tvEmail.transitionName = TRANSITION_EMAIL + customer.id
+            tvPhone.transitionName = TRANSITION_PHONE + customer.id
+            imgProfile.transitionName = TRANSITION_PICTURE + customer.id
+            bgProfile.transitionName = TRANSITION_BACKGROUND + customer.id
         }
     }
 

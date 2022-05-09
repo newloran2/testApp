@@ -16,4 +16,14 @@ data class SharedViews(
     val tvPhone: TextView,
     val imgProfile: ImageView,
     val background: View
-)
+) {
+    fun setTransitionNames(customerId: String): SharedViews {
+        tvName.transitionName = TRANSITION_NAME + customerId
+        tvEmail.transitionName = TRANSITION_EMAIL + customerId
+        tvPhone.transitionName = TRANSITION_PHONE + customerId
+        imgProfile.transitionName = TRANSITION_PICTURE + customerId
+        background.transitionName = TRANSITION_BACKGROUND + customerId
+
+        return this
+    }
+}

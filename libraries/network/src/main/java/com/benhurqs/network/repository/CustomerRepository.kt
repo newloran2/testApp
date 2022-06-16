@@ -16,17 +16,14 @@ object CustomerRepository {
 
     private val onSuccess : ((CustomerListResponse?) -> Unit) = { list ->
         if(list == null || list.customers.isNullOrEmpty()){
-            this.protocol?.emptyState()
-            this.protocol?.hideLoading()
+            this.protocol?.showError(ErrorType.EMPTY)
         }else{
             this.protocol?.loadList(list.customers)
-            this.protocol?.hideLoading()
         }
     }
 
     private val onError: ((errorType: ErrorType) -> Unit) = {
-        this.protocol?.hideLoading()
-        this.protocol?.showError()
+        this.protocol?.showError(it)
     }
 
     private val onLoading: () -> Unit = {

@@ -18,4 +18,11 @@ ext {
     retrofitVersion = '2.9.0'
     logInterceptVersion = '3.9.0'
 
+    appCompatAndroidX = '1.1.0'
+    androidMaterial = '1.3.0'
+    androidCardView = '1.0.0'
+
+    glideVersion = '4.11.0'
+    lottieVersion = "3.4.0"
+
 }

@@ -21,4 +21,8 @@ rootProject.name = "UolTest"
 include ':app'
 
 include ':libraries:actions',
-        ':libraries:network'
+        ':libraries:network',
+        ':libraries:commons'
+
+include ':features:customerList',
+        ':features:customerDetail'

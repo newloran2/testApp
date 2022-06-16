@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- START FONT SIZES  -->
+    <dimen name="font_xxs_2">12sp</dimen>
+    <dimen name="font_xxs">14sp</dimen>
+    <dimen name="font_xs">16sp</dimen>
+    <dimen name="font_s">20sp</dimen>
+    <dimen name="font_m">24sp</dimen>
+    <dimen name="font_l">32sp</dimen>
+    <dimen name="font_xl">40sp</dimen>
+    <dimen name="font_xxl">48sp</dimen>
+    <dimen name="font_xxxl">64sp</dimen>
+    <dimen name="font_display">80sp</dimen>
+    <dimen name="font_giant">96sp</dimen>
+    <!-- END FONT SIZES  -->
+
+    <!-- START CORNER SIZES  -->
+    <dimen name="corner_none">0dp</dimen>
+    <dimen name="corner_s">3dp</dimen>
+    <dimen name="corner_m">6dp</dimen>
+    <dimen name="corner_l">12dp</dimen>
+    <dimen name="corner_pill">500dp</dimen>
+    <!-- END CORNER SIZES  -->
+
+    <!-- START WIDTH SIZES  -->
+    <dimen name="border_width_none">0dp</dimen>
+    <dimen name="border_width_thin">1dp</dimen>
+    <dimen name="border_width_medium">2dp</dimen>
+    <!-- END WIDTH SIZES  -->
+
+    <!-- START MARGIN SIZES  -->
+    <dimen name="margin_xxs">4dp</dimen>
+    <dimen name="margin_xs">8dp</dimen>
+    <dimen name="margin_s">16dp</dimen>
+    <dimen name="margin_m">24dp</dimen>
+    <dimen name="margin_l">32dp</dimen>
+    <dimen name="margin_xl">40dp</dimen>
+    <dimen name="margin_xxl">48dp</dimen>
+    <dimen name="margin_xxl_2">52dp</dimen>
+    <dimen name="margin_xxl_3">64dp</dimen>
+    <dimen name="margin_xxl_4">72dp</dimen>
+    <dimen name="margin_xxl_5">80dp</dimen>
+    <!-- END MARGIN SIZES  -->
+
+    <!-- START PADDING SIZES  -->
+    <dimen name="padding_xxs">4dp</dimen>
+    <dimen name="padding_xs">8dp</dimen>
+    <dimen name="padding_s">16dp</dimen>
+    <dimen name="padding_m">24dp</dimen>
+    <dimen name="padding_l">32dp</dimen>
+    <dimen name="padding_xl">40dp</dimen>
+    <!-- END PADDING SIZES  -->
+
+    <dimen name="profile_image">80dp</dimen>
+
+</resources>

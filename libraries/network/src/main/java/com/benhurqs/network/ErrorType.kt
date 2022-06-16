@@ -1,8 +1,11 @@
 package com.benhurqs.network
 
-enum class ErrorType {
-    EMPTY,
-    NETWORK,
-    SERVER,
-    DEFAULT,
+enum class ErrorType(var value: String) {
+    EMPTY("Não encontramos nenhum perfil."),
+    NETWORK("Verifique sua internet e tente novamente."),
+    SERVER("Infelizmente ocorreu um problema no nosso sistema."),
+    DEFAULT("Infelizmente não conseguimos carregar os perfis.");
+
+
+
 }

@@ -11,8 +11,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/customerDetail" />
+            <option value="$PROJECT_DIR$/features/customerList" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/actions" />
+            <option value="$PROJECT_DIR$/libraries/commons" />
             <option value="$PROJECT_DIR$/libraries/network" />
           </set>
         </option>

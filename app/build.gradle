@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdk rootProject.ext.compileSdkVersion
 
@@ -34,11 +36,15 @@ android {
 dependencies {
     implementation "com.android.support:appcompat-v7:$appCompatVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatAndroidX"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
     implementation project(path: ':libraries:actions')
     implementation project(path: ':libraries:network')
+    implementation project(path: ':libraries:commons')
+    implementation project(path: ':features:customerList')
 }

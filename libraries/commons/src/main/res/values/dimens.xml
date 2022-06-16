@@ -53,5 +53,6 @@
     <!-- END PADDING SIZES  -->
 
     <dimen name="profile_image">80dp</dimen>
+    <dimen name="profile_image_l">120dp</dimen>
 
 </resources>

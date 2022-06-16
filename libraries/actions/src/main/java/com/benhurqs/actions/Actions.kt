@@ -25,4 +25,20 @@ object Actions {
         intent.putExtra(SharedDefs.ID_COD, id)
         context.startActivity(intent)
     }
+
+    fun openFullImage(context: Context,
+                   profileImage: String?
+    ) {
+        val intent = internalIntent(context, "uol.action.fullimage.open")
+        intent.putExtra(SharedDefs.PROFILE_IMG_COD, profileImage)
+        context.startActivity(intent)
+    }
+
+    fun openWebView(context: Context,
+                      link: String?
+    ) {
+        val intent = internalIntent(context, "uol.action.webview.open")
+        intent.putExtra(SharedDefs.PROFILE_LINK_COD, link)
+        context.startActivity(intent)
+    }
 }

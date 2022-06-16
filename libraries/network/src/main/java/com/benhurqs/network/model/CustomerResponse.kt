@@ -6,7 +6,6 @@ class CustomerResponse: Serializable {
     val status: String? = null
     val profileImage: String? = null
     val profileLink: String? = null
-        get() = manageEmptyField(field)
     val phone: String? = null
         get() = manageEmptyField(field)
     val email: String? = null

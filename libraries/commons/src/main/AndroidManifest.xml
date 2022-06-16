@@ -2,4 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.benhurqs.commons">
 
+    <application>
+        <activity
+            android:name=".view.FullImageActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="uol.action.fullimage.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.WebviewActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="uol.action.webview.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
 </manifest>

@@ -7,6 +7,8 @@
         <entry key="features/customerDetail/src/main/res/layout/activity_customer_detail.xml" value="0.2953125" />
         <entry key="features/customerList/src/main/res/layout/customer_item_list.xml" value="0.165" />
         <entry key="libraries/commons/src/main/res/drawable/placeholder_banana.xml" value="0.1685" />
+        <entry key="libraries/commons/src/main/res/layout/activity_image.xml" value="0.2953125" />
+        <entry key="libraries/commons/src/main/res/layout/activity_webview.xml" value="0.2953125" />
         <entry key="libraries/commons/src/main/res/layout/error_view.xml" value="0.2953125" />
       </map>
     </option>

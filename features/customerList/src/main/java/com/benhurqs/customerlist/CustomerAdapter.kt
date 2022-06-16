@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.benhurqs.actions.Actions
 import com.benhurqs.network.model.CustomerResponse
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.customer_item_list.view.*
@@ -22,15 +23,26 @@ class CustomerAdapter(private val context: Context,
     }
 
     private fun initItem(itemView: View, data: CustomerResponse?){
-        data?.let {
-            itemView.customer_item_name.text = it.name
-//            it.isEnabled()
+        data?.let { customer ->
+            itemView.customer_item_name.text = customer.name
 
             Glide.with(context)
-                .load(it.profileImage)
+                .load(customer.profileImage)
                 .circleCrop()
                 .placeholder(com.benhurqs.commons.R.drawable.placeholder_banana)
                 .into(itemView.customer_item_image);
+
+            itemView.setOnClickListener {
+                Actions.openDetail(context,
+                    customer.status,
+                    customer.profileImage,
+                    customer.profileLink,
+                    customer.phone,
+                    customer.email,
+                    customer.name,
+                    customer.id)
+            }
+
         }
     }
 }

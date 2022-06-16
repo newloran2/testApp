@@ -35,4 +35,8 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+
+    implementation project(path: ':libraries:actions')
+    implementation project(path: ':libraries:network')
+    implementation project(path: ':libraries:commons')
 }

@@ -25,4 +25,6 @@ ext {
     glideVersion = '4.11.0'
     lottieVersion = "3.4.0"
 
+    mockkVersion = "1.12.0"
+
 }

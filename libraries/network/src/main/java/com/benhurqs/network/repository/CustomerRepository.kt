@@ -1,32 +1,33 @@
 package com.benhurqs.network.repository
 
-import android.util.Log
 import com.benhurqs.network.CustomerAPI
 import com.benhurqs.network.ErrorType
 import com.benhurqs.network.model.CustomerListResponse
 
-object CustomerRepository {
+object CustomerRepository{
 
     private var protocol: CustomerProtocol? = null
 
-    fun getCustomerList(protocol: CustomerProtocol?){
+    fun getCustomerList(customerAPI: CustomerAPI = CustomerAPI(),
+                        protocol: CustomerProtocol?){
+
         this.protocol = protocol
-        CustomerAPI().getCustomer(onSuccess, onError, onLoading)
+        customerAPI.getCustomer({ onSuccess(it) }, { onError(it) }, { onLoading() })
     }
 
-    private val onSuccess : ((CustomerListResponse?) -> Unit) = { list ->
+    fun onLoading(){
+        this.protocol?.showLoading()
+    }
+
+    fun onSuccess(list: CustomerListResponse?){
         if(list == null || list.customers.isNullOrEmpty()){
             this.protocol?.showError(ErrorType.EMPTY)
         }else{
-            this.protocol?.loadList(list.customers)
+            this.protocol?.loadList(list.customers!!)
         }
     }
 
-    private val onError: ((errorType: ErrorType) -> Unit) = {
-        this.protocol?.showError(it)
-    }
-
-    private val onLoading: () -> Unit = {
-       this.protocol?.showLoading()
+    fun onError(type: ErrorType){
+        this.protocol?.showError(type)
     }
 }

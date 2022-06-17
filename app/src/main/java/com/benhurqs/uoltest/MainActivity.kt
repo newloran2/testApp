@@ -18,8 +18,9 @@ class MainActivity : AppCompatActivity(), CustomerProtocol {
     }
 
     private fun callAPI(){
-        CustomerRepository.getCustomerList(this)
+        CustomerRepository.getCustomerList(protocol = this)
     }
+
 
     override fun loadList(list: List<CustomerResponse?>) {
         hideLoading {

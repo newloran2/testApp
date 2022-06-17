@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/corner_m"
+        android:layout_margin="@dimen/margin_xs"
+        app:cardElevation="@dimen/cardview_default_elevation">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/customer_item_image"
+                android:layout_margin="@dimen/margin_s"
+                app:srcCompat="@drawable/placeholder_banana"
+                android:layout_width="@dimen/profile_image"
+                android:layout_height="@dimen/profile_image"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customer_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:lines="2"
+                android:gravity="center"
+                android:textColor="@color/text_title_color"
+                android:layout_marginHorizontal="@dimen/margin_s"
+                android:textSize="@dimen/font_s"
+                android:layout_marginBottom="@dimen/margin_xs"
+                tools:text="Customer name"/>
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

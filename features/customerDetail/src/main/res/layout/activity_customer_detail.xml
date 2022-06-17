@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blue_main"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_l"
+        android:elevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="@dimen/corner_l"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customer_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_margin="@dimen/margin_s"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:textColor="@color/text_content_color"
+                android:textSize="@dimen/font_xs"
+                tools:text="1234567"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/customer_image"
+                android:layout_margin="@dimen/margin_m"
+                android:layout_width="@dimen/profile_image_l"
+                android:layout_height="@dimen/profile_image_l"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textAllCaps="true"
+                android:lines="2"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:textColor="@color/text_title_color"
+                android:textSize="@dimen/font_m"
+                tools:text="Name"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customer_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:textColor="@color/text_content_color"
+                android:textSize="@dimen/font_s"
+                tools:text="email@email.com"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customer_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:textColor="@color/text_content_color"
+                android:textSize="@dimen/font_s"
+                tools:text="12345678900"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/customer_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:textColor="@color/text_content_color"
+                android:textSize="@dimen/font_xs"
+                android:textAllCaps="true"
+                tools:text="active"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/customer_see_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_xxl_2"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:paddingVertical="@dimen/padding_s"
+                android:textColor="@color/button_color"
+                android:gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:textAllCaps="true"
+                tools:text="Ver perfil completo"
+                android:text="@string/see_profile"
+                android:background="@color/yellow_main"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

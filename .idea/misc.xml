@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable-sw600dp/ic_baseline_call_12.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable-sw600dp/ic_baseline_mail_12.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/card_account_mail_outline.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/card_account_phone_outline.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/ic_baseline_call_12.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/ic_baseline_mail_12.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/ic_baseline_mail_outline_12.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/ic_baseline_open_in_new_24.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/drawable/mail.xml" value="0.1525" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout-land/container_empty.xml" value="0.21164021164021163" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout-land/container_error.xml" value="0.21164021164021163" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout-land/fragment_customer_list.xml" value="0.21164021164021163" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout-sw600dp/fragment_customer_list.xml" value="0.1875" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/activity_main_adapter.xml" value="0.264" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/container_empty.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/container_error.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/container_loading.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/fragment_customer_list.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/fragment_customer_list_adapter.xml" value="0.4" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/fragment_customer_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/fragment_profile_customer.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/res_item_live.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/layout/splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />
+        <entry key="..\:/Users/Rodrigo/Desktop/test/UOL/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.121" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

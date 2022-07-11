@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/customer_nav_graph"
+    app:startDestination="@id/customerList">
+
+    <fragment
+        android:id="@+id/customerList"
+        android:name="com.uoltest.rodrigo.view.fragment.CustomerListFragment"
+        android:label="@string/customer_list_fragment_label"
+        tools:layout="@layout/fragment_customer_list">
+        <action
+            android:id="@+id/action_customerList_to_customerProfile"
+            app:destination="@id/customerProfile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/customerProfile"
+        android:name="com.uoltest.rodrigo.view.fragment.CustomerProfileFragment"
+        android:label="@string/customer_profile_fragment_label"
+        tools:layout="@layout/fragment_customer_profile">
+
+        <argument
+            android:name="customer"
+            app:argType="com.uoltest.rodrigo.model.data.Customer" />
+    </fragment>
+
+</navigation>

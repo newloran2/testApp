@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UOL Rodrigo</string>
+    <string name="profile_picture">Foto de perfil</string>
+    <string name="no_internet_connection">Sem conexão com a internet!</string>
+    <string name="network_failure">Houve um problema de rede!</string>
+    <string name="unkonw_error">Aconteceu algum erro desconhecido!</string>
+    <string name="error_image">Imagem de erro</string>
+    <string name="open_in_new">Abrir em nova página</string>
+    <string name="customer_list_fragment_label">Lista de Clientes</string>
+    <string name="customer_profile_fragment_label">Perfil</string>
+    <string name="err_connection_timed_out">Excedeu o tempo de conexão, verifique sua conexão e tente novamente</string>
+    <string name="err_cleartext_not_permitted">Não parece ser um link válido. Deseja tentar novamente?</string>
+    <string name="err_name_not_resolved">Site não encontrado, link quebrado ou incorreto. Tentar novamente?</string>
+    <string name="ssl_error">Site com certificado inválido!</string>
+    <string name="empty_customer_list">Sem clientes para exibir</string>
+    <string name="reload">Recarregar</string>
+</resources>

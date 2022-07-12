@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import br.com.testeuol.R
 import br.com.testeuol.databinding.FragmentGalleryPhotoProfileBinding
 import br.com.testeuol.feature.home.viewmodel.GalleryPhotoProfileViewModel
 import org.koin.android.ext.android.inject

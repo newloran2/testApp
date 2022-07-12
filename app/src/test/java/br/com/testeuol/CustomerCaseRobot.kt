@@ -5,11 +5,9 @@ import br.com.testeuol.data.repository.CustomerRepository
 import br.com.testeuol.feature.home.usecase.CustomerUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
-import retrofit2.HttpException
 
 
 fun withRobot(lb: CustomerCaseRobot.() -> Unit): CustomerCaseRobot =

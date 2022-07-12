@@ -15,7 +15,7 @@ class TesteUolApplication : Application() {
             modules(module {
                 factory {  }
             })
-            val listModules = listOf(AppModule.loadDataModule())
+            val listModules = listOf(AppModule.loadDataModule(), AppModule.loadUseCaseModule(), AppModule.loadViewModelModule())
             modules(listModules)
         }
         super.onCreate()

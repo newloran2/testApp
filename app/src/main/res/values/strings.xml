@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Teste Uol</string>
+    <string name="text_name">Nome:</string>
+    <string name="text_status">Status:</string>
+    <string name="text_email">E-mail:</string>
+    <string name="text_id">ID:</string>
+    <string name="text_link">Link:</string>
+    <string name="text_profile_image">Imagem Perfil</string>
+    <string name="text_phone">Telefone:</string>
+    <string name="text_title_alert">Alerta</string>
+    <string name="text_mensagem_dialog">Algo deu errado</string>
 </resources>

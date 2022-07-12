@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/listCustomerFragment">
+
+    <fragment
+        android:id="@+id/listCustomerFragment"
+        tools:layout="@layout/fragment_list_customer"
+        android:name="br.com.testeuol.feature.home.view.ListCustomerFragment"
+        android:label="ListCustomerFragment" >
+        <action
+            android:id="@+id/action_listCustomerFragment_to_galleryLinkWebViewFragment"
+            app:destination="@id/galleryLinkWebViewFragment" />
+        <action
+            android:id="@+id/action_listCustomerFragment_to_galleryPhotoProfileFragment"
+            app:destination="@id/galleryPhotoProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryLinkWebViewFragment"
+        android:name="br.com.testeuol.feature.home.view.GalleryLinkWebViewFragment"
+        tools:layout="@layout/fragment_profile_link_web"
+        android:label="GalleryLinkWebViewFragment">
+        <argument
+            android:name="urlProfile"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryPhotoProfileFragment"
+        tools:layout="@layout/fragment_gallery_photo_profile"
+        android:name="br.com.testeuol.feature.home.view.GalleryPhotoProfileFragment"
+        android:label="GalleryPhotoProfileFragment">
+        <argument app:argType="string"
+            android:name="urlImage"
+            android:defaultValue="@null"
+            app:nullable="true"/>
+
+    </fragment>
+
+
+</navigation>

@@ -7,30 +7,57 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.customerstest.R
+import com.example.customerstest.RecyclerListClickListener
 import com.example.customerstest.models.Customer
 import com.squareup.picasso.Picasso
 
 class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var items = ArrayList<Customer>()
+    lateinit var listener: RecyclerListClickListener
 
-    fun setUpdateData(items: ArrayList<Customer>){
+    fun setUpdateData(items: ArrayList<Customer>,
+                      listener: RecyclerListClickListener
+    ){
         this.items = items
+        this.listener = listener
         notifyDataSetChanged()
     }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val imageThumb = view.findViewById<ImageView>(R.id.imageThumb)
-        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
-        val tvDesc = view.findViewById<TextView>(R.id.tvDesc)
+        val ivThumb = view.findViewById<ImageView>(R.id.ivThumb)
+        val tvName = view.findViewById<TextView>(R.id.tvName)
+        val tvStatus = view.findViewById<TextView>(R.id.tvStatus)
+        val tvId = view.findViewById<TextView>(R.id.tvId)
+        val tvPhone = view.findViewById<TextView>(R.id.tvPhone)
+        val tvLink = view.findViewById<TextView>(R.id.tvProfileLink)
 
-        fun bind(data: Customer){
-            tvTitle.text = data.name
-            tvDesc.text = data.profileLink
-            val urlImg = data.profileImage
-            Picasso.get()
-                .load(urlImg)
-                .into(imageThumb)
+        fun bind(customer: Customer, listener: RecyclerListClickListener){
+            tvName.text = customer.name
+            tvStatus.text = customer.status
+            tvId.text = customer.id
+            tvPhone.text = customer.phone
+            tvLink.text = customer.profileLink
+            val urlImg = customer.profileImage
+            if(urlImg != null){
+                Picasso.get()
+                    .load(urlImg)
+                    .error(R.drawable.uol_avatar_default)
+                    .into(ivThumb)
+            } else {
+                Picasso.get()
+                    .load(R.drawable.uol_avatar_default)
+                    .into(ivThumb)
+            }
+
+            ivThumb.setOnClickListener(){
+                listener.onRecyclerListItemClick(ivThumb, customer)
+            }
+            tvLink.setOnClickListener(){
+                listener.onRecyclerListItemClick(tvLink, customer)
+            }
+
+
         }
     }
 
@@ -41,7 +68,7 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items.get(position))
+        holder.bind(items.get(position), listener)
     }
 
     override fun getItemCount(): Int {

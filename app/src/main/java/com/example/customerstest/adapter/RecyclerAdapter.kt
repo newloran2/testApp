@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.customerstest.R
 import com.example.customerstest.RecyclerListClickListener
+import com.example.customerstest.Utils
 import com.example.customerstest.models.Customer
 import com.squareup.picasso.Picasso
 
@@ -39,11 +40,21 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             tvPhone.text = customer.phone
             tvLink.text = customer.profileLink
             val urlImg = customer.profileImage
+            var imgGhost: Int
             if(urlImg != null){
                 Picasso.get()
                     .load(urlImg)
-                    .error(R.drawable.uol_avatar_default)
-                    .into(ivThumb)
+                    .into(ivThumb, object: com.squareup.picasso.Callback {
+                        override fun onSuccess() {
+                            //nothing
+                        }
+                        override fun onError(e: java.lang.Exception?) {
+                            imgGhost = Utils.getGhostImage(urlImg)
+                            Picasso.get()
+                                .load(imgGhost)
+                                .into(ivThumb)
+                        }
+                    })
             } else {
                 Picasso.get()
                     .load(R.drawable.uol_avatar_default)
